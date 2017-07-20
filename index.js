@@ -3546,16 +3546,7 @@ function resolveParseFunction(opts) {
   if (typeof opts.parser === "function") {
     return opts.parser;
   }
-  if (typeof opts.parser === "string") {
-    if (parsers.hasOwnProperty(opts.parser)) {
-      return parsers[opts.parser];
-    }
-    try {
-      return require(path$1.resolve(process.cwd(), opts.parser));
-    } catch (err) {
-      throw new Error(`Couldn't resolve parser "${opts.parser}"`);
-    }
-  }
+
   return parsers.babylon;
 }
 
